@@ -1,0 +1,106 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 0F93      		push r16
+  22 0002 1F93      		push r17
+  23 0004 CF93      		push r28
+  24 0006 DF93      		push r29
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LM2:
+  28 0008 8FEF      		ldi r24,lo8(-1)
+  29 000a 84BB      		out 52-32,r24
+  30 000c C1E0      		ldi r28,lo8(1)
+  31 000e D0E0      		ldi r29,hi8(1)
+  32               	.LVL0:
+  33 0010 40E8      		ldi r20,lo8(128)
+  34 0012 50E0      		ldi r21,hi8(128)
+  35               	.LVL1:
+  36               	.LBB12:
+  37               	.LBB13:
+  38               	.LBB14:
+  39               	.LBB15:
+  40               	.LM3:
+  41 0014 08EC      		ldi r16,lo8(200)
+  42 0016 10E0      		ldi r17,hi8(200)
+  43 0018 00C0      		rjmp .L7
+  44               	.LVL2:
+  45               	.L4:
+  46               	.LBE15:
+  47               	.LBE14:
+  48               	.LBE13:
+  49               	.LBE12:
+  50               	.LM4:
+  51 001a CC0F      		lsl r28
+  52 001c DD1F      		rol r29
+  53               	.LVL3:
+  54               	.L7:
+  55               	.LM5:
+  56 001e 842F      		mov r24,r20
+  57               	.LVL4:
+  58 0020 8C0F      		add r24,r28
+  59 0022 85BB      		out 53-32,r24
+  60 0024 20E1      		ldi r18,lo8(10000)
+  61 0026 37E2      		ldi r19,hi8(10000)
+  62               	.L3:
+  63               	.LBB19:
+  64               	.LBB18:
+  65               	.LBB17:
+  66               	.LBB16:
+  67               	.LM6:
+  68 0028 F801      		movw r30,r16
+  69               	/* #APP */
+  70               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  71 002a 3197      		1: sbiw r30,1
+  72 002c 01F4      		brne 1b
+  73               	 ;  0 "" 2
+  74               	/* #NOAPP */
+  75               	.LBE16:
+  76               	.LBE17:
+  77               	.LM7:
+  78 002e 2150      		subi r18,lo8(-(-1))
+  79 0030 3040      		sbci r19,hi8(-(-1))
+  80               	.LM8:
+  81 0032 01F4      		brne .L3
+  82               	.LBE18:
+  83               	.LBE19:
+  84               	.LM9:
+  85 0034 CA01      		movw r24,r20
+  86 0036 62E0      		ldi r22,lo8(2)
+  87 0038 70E0      		ldi r23,hi8(2)
+  88               	.LVL5:
+  89 003a 0E94 0000 		call __divmodhi4
+  90 003e AB01      		movw r20,r22
+  91 0040 1616      		cp __zero_reg__,r22
+  92 0042 1706      		cpc __zero_reg__,r23
+  93 0044 04F0      		brlt .L4
+  94               	.LVL6:
+  95 0046 C1E0      		ldi r28,lo8(1)
+  96 0048 D0E0      		ldi r29,hi8(1)
+  97 004a 40E8      		ldi r20,lo8(128)
+  98 004c 50E0      		ldi r21,hi8(128)
+  99               	.LVL7:
+ 100 004e 00C0      		rjmp .L7
+ 101               	.LFE6:
+ 127               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:2      *ABS*:0000003f __SREG__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:3      *ABS*:0000003e __SP_H__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:4      *ABS*:0000003d __SP_L__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:5      *ABS*:00000034 __CCP__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\hp\AppData\Local\Temp/ccN9o3b0.s:18     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__divmodhi4

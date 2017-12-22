@@ -1,0 +1,45 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 84BB      		out 52-32,r24
+  26               	.LM3:
+  27 0004 1ABA      		out 58-32,__zero_reg__
+  28               	.LM4:
+  29 0006 8BBB      		out 59-32,r24
+  30               	.L5:
+  31               	.LM5:
+  32 0008 C89B      		sbis 57-32,0
+  33 000a 00C0      		rjmp .L2
+  34               	.LM6:
+  35 000c 85BB      		out 53-32,r24
+  36 000e 00C0      		rjmp .L5
+  37               	.L2:
+  38               	.LM7:
+  39 0010 15BA      		out 53-32,__zero_reg__
+  40 0012 00C0      		rjmp .L5
+  41               	.LFE6:
+  67               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:2      *ABS*:0000003f __SREG__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:3      *ABS*:0000003e __SP_H__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:4      *ABS*:0000003d __SP_L__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:5      *ABS*:00000034 __CCP__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\hp\AppData\Local\Temp/ccyotVwA.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

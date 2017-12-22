@@ -1,0 +1,100 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 84BB      		out 52-32,r24
+  26               	.LM3:
+  27 0004 4FEF      		ldi r20,lo8(-1)
+  28               	.LBB18:
+  29               	.LBB19:
+  30               	.LBB20:
+  31               	.LBB21:
+  32               	.LM4:
+  33 0006 28EC      		ldi r18,lo8(200)
+  34 0008 30E0      		ldi r19,hi8(200)
+  35               	.LVL0:
+  36               	.L4:
+  37               	.LBE21:
+  38               	.LBE20:
+  39               	.LBE19:
+  40               	.LBE18:
+  41               	.LM5:
+  42 000a 45BB      		out 53-32,r20
+  43 000c 82EE      		ldi r24,lo8(1250)
+  44 000e 94E0      		ldi r25,hi8(1250)
+  45               	.LVL1:
+  46               	.L2:
+  47               	.LBB25:
+  48               	.LBB24:
+  49               	.LBB23:
+  50               	.LBB22:
+  51               	.LM6:
+  52 0010 F901      		movw r30,r18
+  53               	.LVL2:
+  54               	/* #APP */
+  55               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  56 0012 3197      		1: sbiw r30,1
+  57 0014 01F4      		brne 1b
+  58               	 ;  0 "" 2
+  59               	/* #NOAPP */
+  60               	.LBE22:
+  61               	.LBE23:
+  62               	.LM7:
+  63 0016 0197      		sbiw r24,1
+  64               	.LM8:
+  65 0018 01F4      		brne .L2
+  66               	.LBE24:
+  67               	.LBE25:
+  68               	.LM9:
+  69 001a 15BA      		out 53-32,__zero_reg__
+  70 001c 82EE      		ldi r24,lo8(1250)
+  71 001e 94E0      		ldi r25,hi8(1250)
+  72               	.LVL3:
+  73               	.L3:
+  74               	.LBB26:
+  75               	.LBB27:
+  76               	.LBB28:
+  77               	.LBB29:
+  78               	.LM10:
+  79 0020 F901      		movw r30,r18
+  80               	.LVL4:
+  81               	/* #APP */
+  82               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  83 0022 3197      		1: sbiw r30,1
+  84 0024 01F4      		brne 1b
+  85               	 ;  0 "" 2
+  86               	/* #NOAPP */
+  87               	.LBE29:
+  88               	.LBE28:
+  89               	.LM11:
+  90 0026 0197      		sbiw r24,1
+  91               	.LM12:
+  92 0028 01F4      		brne .L3
+  93 002a 00C0      		rjmp .L4
+  94               	.LBE27:
+  95               	.LBE26:
+  96               	.LFE6:
+ 122               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prateek\AppData\Local\Temp/cc5iDVUd.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

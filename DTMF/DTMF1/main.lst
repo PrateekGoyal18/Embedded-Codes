@@ -1,0 +1,95 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1ABA      		out 58-32,__zero_reg__
+  25               	.LM3:
+  26 0002 8FEF      		ldi r24,lo8(-1)
+  27 0004 8BBB      		out 59-32,r24
+  28               	.LM4:
+  29 0006 84BB      		out 52-32,r24
+  30               	.LM5:
+  31 0008 61E0      		ldi r22,lo8(1)
+  32               	.LM6:
+  33 000a 52E0      		ldi r21,lo8(2)
+  34               	.LM7:
+  35 000c 44E0      		ldi r20,lo8(4)
+  36               	.LM8:
+  37 000e 38E0      		ldi r19,lo8(8)
+  38               	.LM9:
+  39 0010 20E1      		ldi r18,lo8(16)
+  40               	.LM10:
+  41 0012 90E2      		ldi r25,lo8(32)
+  42               	.L11:
+  43               	.LM11:
+  44 0014 89B3      		in r24,57-32
+  45 0016 8F70      		andi r24,lo8(15)
+  46 0018 8130      		cpi r24,lo8(1)
+  47 001a 01F4      		brne .L2
+  48               	.LM12:
+  49 001c 65BB      		out 53-32,r22
+  50               	.L2:
+  51               	.LM13:
+  52 001e 89B3      		in r24,57-32
+  53 0020 8F70      		andi r24,lo8(15)
+  54 0022 8230      		cpi r24,lo8(2)
+  55 0024 01F4      		brne .L3
+  56               	.LM14:
+  57 0026 55BB      		out 53-32,r21
+  58               	.L3:
+  59               	.LM15:
+  60 0028 89B3      		in r24,57-32
+  61 002a 8F70      		andi r24,lo8(15)
+  62 002c 8330      		cpi r24,lo8(3)
+  63 002e 01F4      		brne .L4
+  64               	.LM16:
+  65 0030 45BB      		out 53-32,r20
+  66               	.L4:
+  67               	.LM17:
+  68 0032 89B3      		in r24,57-32
+  69 0034 8F70      		andi r24,lo8(15)
+  70 0036 8430      		cpi r24,lo8(4)
+  71 0038 01F4      		brne .L5
+  72               	.LM18:
+  73 003a 35BB      		out 53-32,r19
+  74               	.L5:
+  75               	.LM19:
+  76 003c 89B3      		in r24,57-32
+  77 003e 8F70      		andi r24,lo8(15)
+  78 0040 8530      		cpi r24,lo8(5)
+  79 0042 01F4      		brne .L6
+  80               	.LM20:
+  81 0044 25BB      		out 53-32,r18
+  82               	.L6:
+  83               	.LM21:
+  84 0046 89B3      		in r24,57-32
+  85 0048 8F70      		andi r24,lo8(15)
+  86 004a 8630      		cpi r24,lo8(6)
+  87 004c 01F4      		brne .L11
+  88               	.LM22:
+  89 004e 95BB      		out 53-32,r25
+  90 0050 00C0      		rjmp .L11
+  91               	.LFE6:
+ 117               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:2      *ABS*:0000003f __SREG__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:3      *ABS*:0000003e __SP_H__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:4      *ABS*:0000003d __SP_L__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:5      *ABS*:00000034 __CCP__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\hp\AppData\Local\Temp/ccg25Qbf.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

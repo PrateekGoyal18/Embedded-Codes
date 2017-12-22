@@ -1,0 +1,259 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000118  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  0000016c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000002e  00000000  00000000  0000018c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000013d  00000000  00000000  000001ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000e5  00000000  00000000  000002f7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000001bc  00000000  00000000  000003dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000030  00000000  00000000  00000598  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000ca  00000000  00000000  000005c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    000000d1  00000000  00000000  00000692  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000048  00000000  00000000  00000763  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 72 00 	call	0xe4	; 0xe4 <main>
+  64:	0c 94 8a 00 	jmp	0x114	; 0x114 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <seven_seg_disp>:
+}
+
+void seven_seg_disp(unsigned char i)
+{
+
+ switch(i)
+  6c:	84 30       	cpi	r24, 0x04	; 4
+  6e:	19 f1       	breq	.+70     	; 0xb6 <seven_seg_disp+0x4a>
+  70:	85 30       	cpi	r24, 0x05	; 5
+  72:	48 f4       	brcc	.+18     	; 0x86 <seven_seg_disp+0x1a>
+  74:	81 30       	cpi	r24, 0x01	; 1
+  76:	b9 f0       	breq	.+46     	; 0xa6 <seven_seg_disp+0x3a>
+  78:	81 30       	cpi	r24, 0x01	; 1
+  7a:	98 f0       	brcs	.+38     	; 0xa2 <seven_seg_disp+0x36>
+  7c:	82 30       	cpi	r24, 0x02	; 2
+  7e:	a9 f0       	breq	.+42     	; 0xaa <seven_seg_disp+0x3e>
+  80:	83 30       	cpi	r24, 0x03	; 3
+  82:	79 f5       	brne	.+94     	; 0xe2 <seven_seg_disp+0x76>
+  84:	16 c0       	rjmp	.+44     	; 0xb2 <seven_seg_disp+0x46>
+  86:	87 30       	cpi	r24, 0x07	; 7
+  88:	f9 f0       	breq	.+62     	; 0xc8 <seven_seg_disp+0x5c>
+  8a:	88 30       	cpi	r24, 0x08	; 8
+  8c:	28 f4       	brcc	.+10     	; 0x98 <seven_seg_disp+0x2c>
+  8e:	85 30       	cpi	r24, 0x05	; 5
+  90:	a1 f0       	breq	.+40     	; 0xba <seven_seg_disp+0x4e>
+  92:	86 30       	cpi	r24, 0x06	; 6
+  94:	31 f5       	brne	.+76     	; 0xe2 <seven_seg_disp+0x76>
+  96:	15 c0       	rjmp	.+42     	; 0xc2 <seven_seg_disp+0x56>
+  98:	88 30       	cpi	r24, 0x08	; 8
+  9a:	d1 f0       	breq	.+52     	; 0xd0 <seven_seg_disp+0x64>
+  9c:	89 30       	cpi	r24, 0x09	; 9
+  9e:	09 f5       	brne	.+66     	; 0xe2 <seven_seg_disp+0x76>
+  a0:	1c c0       	rjmp	.+56     	; 0xda <seven_seg_disp+0x6e>
+ {
+	case 0:
+	{
+	PORTB = ~0B00001011;
+  a2:	84 ef       	ldi	r24, 0xF4	; 244
+  a4:	16 c0       	rjmp	.+44     	; 0xd2 <seven_seg_disp+0x66>
+	PORTD = ~0B00011010;
+	break;
+	}
+	case 1: 
+	{
+	PORTB = ~0B00000001;
+  a6:	8e ef       	ldi	r24, 0xFE	; 254
+  a8:	10 c0       	rjmp	.+32     	; 0xca <seven_seg_disp+0x5e>
+	PORTD = ~0B00000010;
+	break;
+	}
+	case 2:
+	{
+	PORTB = ~0B00010011;
+  aa:	8c ee       	ldi	r24, 0xEC	; 236
+  ac:	88 bb       	out	0x18, r24	; 24
+	PORTD = ~0B00011000;
+  ae:	87 ee       	ldi	r24, 0xE7	; 231
+  b0:	12 c0       	rjmp	.+36     	; 0xd6 <seven_seg_disp+0x6a>
+	break;
+	}
+	case 3:
+	{
+	PORTB = ~0B00010011;
+  b2:	8c ee       	ldi	r24, 0xEC	; 236
+  b4:	03 c0       	rjmp	.+6      	; 0xbc <seven_seg_disp+0x50>
+	PORTD = ~0B00001010;
+	break;
+	}
+	case 4:
+	{
+	PORTB = ~0B00011001;
+  b6:	86 ee       	ldi	r24, 0xE6	; 230
+  b8:	08 c0       	rjmp	.+16     	; 0xca <seven_seg_disp+0x5e>
+	PORTD = ~0B00000010;
+	break;
+	}
+	case 5:
+	{
+	PORTB = ~0B00011010;
+  ba:	85 ee       	ldi	r24, 0xE5	; 229
+  bc:	88 bb       	out	0x18, r24	; 24
+	PORTD = ~0B00001010;
+  be:	85 ef       	ldi	r24, 0xF5	; 245
+  c0:	0a c0       	rjmp	.+20     	; 0xd6 <seven_seg_disp+0x6a>
+	break;
+	}
+	case 6:
+	{
+	PORTB = ~0B00011010;
+  c2:	85 ee       	ldi	r24, 0xE5	; 229
+  c4:	88 bb       	out	0x18, r24	; 24
+  c6:	07 c0       	rjmp	.+14     	; 0xd6 <seven_seg_disp+0x6a>
+	PORTD = ~0B00011010;
+	break;
+	}
+	case 7:
+	{
+	PORTB = ~0B00000011;
+  c8:	8c ef       	ldi	r24, 0xFC	; 252
+  ca:	88 bb       	out	0x18, r24	; 24
+	PORTD = ~0B00000010;
+  cc:	8d ef       	ldi	r24, 0xFD	; 253
+  ce:	03 c0       	rjmp	.+6      	; 0xd6 <seven_seg_disp+0x6a>
+	break;
+	}
+	case 8:
+	{
+	PORTB = ~0B00011011;
+  d0:	84 ee       	ldi	r24, 0xE4	; 228
+  d2:	88 bb       	out	0x18, r24	; 24
+	PORTD = ~0B00011010;
+  d4:	85 ee       	ldi	r24, 0xE5	; 229
+  d6:	82 bb       	out	0x12, r24	; 18
+  d8:	08 95       	ret
+	break;
+	}
+	case 9:
+	{
+	PORTB = ~0B00011011;
+  da:	84 ee       	ldi	r24, 0xE4	; 228
+  dc:	88 bb       	out	0x18, r24	; 24
+	PORTD = ~0B00000010;
+  de:	8d ef       	ldi	r24, 0xFD	; 253
+  e0:	82 bb       	out	0x12, r24	; 18
+  e2:	08 95       	ret
+
+000000e4 <main>:
+
+void seven_seg_disp(unsigned char);
+
+int main()
+
+{
+  e4:	1f 93       	push	r17
+  e6:	cf 93       	push	r28
+  e8:	df 93       	push	r29
+	DDRB = 0XFF;
+  ea:	8f ef       	ldi	r24, 0xFF	; 255
+  ec:	87 bb       	out	0x17, r24	; 23
+	DDRD = 0XFF;
+  ee:	81 bb       	out	0x11, r24	; 17
+  f0:	10 e0       	ldi	r17, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  f2:	c8 ec       	ldi	r28, 0xC8	; 200
+  f4:	d0 e0       	ldi	r29, 0x00	; 0
+	unsigned char i;
+	
+	while(1)
+	for(i=0;i<10;i++)
+	{
+	seven_seg_disp(i);
+  f6:	81 2f       	mov	r24, r17
+  f8:	0e 94 36 00 	call	0x6c	; 0x6c <seven_seg_disp>
+  fc:	88 e8       	ldi	r24, 0x88	; 136
+  fe:	93 e1       	ldi	r25, 0x13	; 19
+ 100:	fe 01       	movw	r30, r28
+ 102:	31 97       	sbiw	r30, 0x01	; 1
+ 104:	f1 f7       	brne	.-4      	; 0x102 <main+0x1e>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 106:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 108:	d9 f7       	brne	.-10     	; 0x100 <main+0x1c>
+	DDRB = 0XFF;
+	DDRD = 0XFF;
+	unsigned char i;
+	
+	while(1)
+	for(i=0;i<10;i++)
+ 10a:	1f 5f       	subi	r17, 0xFF	; 255
+ 10c:	1a 30       	cpi	r17, 0x0A	; 10
+ 10e:	98 f3       	brcs	.-26     	; 0xf6 <main+0x12>
+ 110:	10 e0       	ldi	r17, 0x00	; 0
+ 112:	f1 cf       	rjmp	.-30     	; 0xf6 <main+0x12>
+
+00000114 <_exit>:
+ 114:	f8 94       	cli
+
+00000116 <__stop_program>:
+ 116:	ff cf       	rjmp	.-2      	; 0x116 <__stop_program>

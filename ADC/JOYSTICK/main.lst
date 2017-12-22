@@ -1,0 +1,95 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	adc_read
+  18               	adc_read:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 369A      		sbi 38-32,6
+  25               	.L2:
+  26               	.LM3:
+  27 0002 349B      		sbis 38-32,4
+  28 0004 00C0      		rjmp .L2
+  29               	.LM4:
+  30 0006 85B1      		in r24,37-32
+  31               	.LM5:
+  32 0008 90E0      		ldi r25,lo8(0)
+  33               	/* epilogue start */
+  34 000a 0895      		ret
+  35               	.LFE6:
+  37               	.global	main
+  39               	main:
+  40               	.LFB7:
+  41               	.LM6:
+  42               	/* prologue: function */
+  43               	/* frame size = 0 */
+  44               	.LM7:
+  45 000c 8FEF      		ldi r24,lo8(-1)
+  46 000e 84BB      		out 52-32,r24
+  47               	.LM8:
+  48 0010 1ABA      		out 58-32,__zero_reg__
+  49               	.LM9:
+  50 0012 8BBB      		out 59-32,r24
+  51               	.LM10:
+  52 0014 87E8      		ldi r24,lo8(-121)
+  53 0016 86B9      		out 38-32,r24
+  54               	.LM11:
+  55 0018 80EE      		ldi r24,lo8(-32)
+  56 001a 87B9      		out 39-32,r24
+  57               	.LM12:
+  58 001c 36E0      		ldi r19,lo8(6)
+  59               	.LM13:
+  60 001e 23E0      		ldi r18,lo8(3)
+  61               	.LVL0:
+  62               	.L15:
+  63               	.LBB4:
+  64               	.LBB5:
+  65               	.LM14:
+  66 0020 369A      		sbi 38-32,6
+  67               	.L6:
+  68               	.LM15:
+  69 0022 349B      		sbis 38-32,4
+  70 0024 00C0      		rjmp .L6
+  71               	.LM16:
+  72 0026 85B1      		in r24,37-32
+  73               	.LVL1:
+  74 0028 90E0      		ldi r25,lo8(0)
+  75               	.LBE5:
+  76               	.LBE4:
+  77               	.LM17:
+  78 002a 8739      		cpi r24,151
+  79 002c 9105      		cpc r25,__zero_reg__
+  80               	.LVL2:
+  81 002e 04F0      		brlt .L11
+  82 0030 8A39      		cpi r24,154
+  83 0032 9105      		cpc r25,__zero_reg__
+  84 0034 04F4      		brge .L11
+  85               	.LM18:
+  86 0036 25BB      		out 53-32,r18
+  87 0038 00C0      		rjmp .L15
+  88               	.L11:
+  89               	.LM19:
+  90 003a 35BB      		out 53-32,r19
+  91 003c 00C0      		rjmp .L15
+  92               	.LFE7:
+ 126               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:18     .text:00000000 adc_read
+C:\Users\Prateek\AppData\Local\Temp/cc3KkNTP.s:39     .text:0000000c main
+
+NO UNDEFINED SYMBOLS

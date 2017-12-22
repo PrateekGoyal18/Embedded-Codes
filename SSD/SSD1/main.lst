@@ -1,0 +1,128 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 DF93      		push r29
+  22 0002 CF93      		push r28
+  23 0004 CDB7      		in r28,__SP_L__
+  24 0006 DEB7      		in r29,__SP_H__
+  25 0008 2A97      		sbiw r28,10
+  26 000a 0FB6      		in __tmp_reg__,__SREG__
+  27 000c F894      		cli
+  28 000e DEBF      		out __SP_H__,r29
+  29 0010 0FBE      		out __SREG__,__tmp_reg__
+  30 0012 CDBF      		out __SP_L__,r28
+  31               	/* prologue: function */
+  32               	/* frame size = 10 */
+  33               	.LM2:
+  34 0014 8FEF      		ldi r24,lo8(-1)
+  35 0016 84BB      		out 52-32,r24
+  36               	.LM3:
+  37 0018 DE01      		movw r26,r28
+  38 001a 1196      		adiw r26,1
+  39 001c E0E0      		ldi r30,lo8(C.0.1249)
+  40 001e F0E0      		ldi r31,hi8(C.0.1249)
+  41 0020 8AE0      		ldi r24,lo8(10)
+  42               	.L2:
+  43 0022 0190      		ld r0,Z+
+  44 0024 0D92      		st X+,r0
+  45 0026 8150      		subi r24,lo8(-(-1))
+  46 0028 01F4      		brne .L2
+  47 002a DE01      		movw r26,r28
+  48 002c 1196      		adiw r26,1
+  49               	.LBB13:
+  50               	.LBB14:
+  51               	.LBB15:
+  52               	.LBB16:
+  53               	.LBB17:
+  54               	.LM4:
+  55 002e 48EC      		ldi r20,lo8(200)
+  56 0030 50E0      		ldi r21,hi8(200)
+  57               	.LBE17:
+  58               	.LBE16:
+  59               	.LBE15:
+  60               	.LBE14:
+  61               	.LM5:
+  62 0032 9E01      		movw r18,r28
+  63 0034 255F      		subi r18,lo8(-(11))
+  64 0036 3F4F      		sbci r19,hi8(-(11))
+  65               	.LVL0:
+  66               	.L4:
+  67               	.LM6:
+  68 0038 8C91      		ld r24,X
+  69               	.LVL1:
+  70 003a 85BB      		out 53-32,r24
+  71 003c 80E1      		ldi r24,lo8(10000)
+  72 003e 97E2      		ldi r25,hi8(10000)
+  73               	.LVL2:
+  74               	.L3:
+  75               	.LBB21:
+  76               	.LBB20:
+  77               	.LBB19:
+  78               	.LBB18:
+  79               	.LM7:
+  80 0040 FA01      		movw r30,r20
+  81               	/* #APP */
+  82               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  83 0042 3197      		1: sbiw r30,1
+  84 0044 01F4      		brne 1b
+  85               	 ;  0 "" 2
+  86               	/* #NOAPP */
+  87               	.LBE18:
+  88               	.LBE19:
+  89               	.LM8:
+  90 0046 0197      		sbiw r24,1
+  91               	.LM9:
+  92 0048 01F4      		brne .L3
+  93 004a 1296      		adiw r26,2
+  94               	.LBE20:
+  95               	.LBE21:
+  96               	.LM10:
+  97 004c A217      		cp r26,r18
+  98 004e B307      		cpc r27,r19
+  99 0050 01F4      		brne .L4
+ 100               	.LBE13:
+ 101               	.LM11:
+ 102 0052 80E0      		ldi r24,lo8(0)
+ 103 0054 90E0      		ldi r25,hi8(0)
+ 104               	.LVL3:
+ 105               	/* epilogue start */
+ 106 0056 2A96      		adiw r28,10
+ 107 0058 0FB6      		in __tmp_reg__,__SREG__
+ 108 005a F894      		cli
+ 109 005c DEBF      		out __SP_H__,r29
+ 110 005e 0FBE      		out __SREG__,__tmp_reg__
+ 111 0060 CDBF      		out __SP_L__,r28
+ 112 0062 CF91      		pop r28
+ 113 0064 DF91      		pop r29
+ 114 0066 0895      		ret
+ 115               	.LFE6:
+ 117               		.data
+ 120               	C.0.1249:
+ 121 0000 0A00      		.word	10
+ 122 0002 1400      		.word	20
+ 123 0004 1E00      		.word	30
+ 124 0006 2800      		.word	40
+ 125 0008 3200      		.word	50
+ 150               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:2      *ABS*:0000003f __SREG__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:3      *ABS*:0000003e __SP_H__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:4      *ABS*:0000003d __SP_L__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:5      *ABS*:00000034 __CCP__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:18     .text:00000000 main
+C:\Users\hp\AppData\Local\Temp/ccA0aGn3.s:120    .data:00000000 C.0.1249
+
+UNDEFINED SYMBOLS
+__do_copy_data

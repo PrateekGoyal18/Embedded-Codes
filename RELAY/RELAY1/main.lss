@@ -1,0 +1,132 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000009c  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  000000f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000001b  00000000  00000000  00000110  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000156  00000000  00000000  0000012b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000d7  00000000  00000000  00000281  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   0000014d  00000000  00000000  00000358  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000020  00000000  00000000  000004a8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000ba  00000000  00000000  000004c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00000080  00000000  00000000  00000582  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000048  00000000  00000000  00000602  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 4c 00 	jmp	0x98	; 0x98 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include<avr/io.h>
+#include<util/delay.h>
+
+main()
+{
+  DDRC = 0b11111111;
+  6c:	8f ef       	ldi	r24, 0xFF	; 255
+  6e:	84 bb       	out	0x14, r24	; 20
+  while(1)
+  {
+    PORTC = 0b00000001;
+  70:	41 e0       	ldi	r20, 0x01	; 1
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  72:	28 ec       	ldi	r18, 0xC8	; 200
+  74:	30 e0       	ldi	r19, 0x00	; 0
+  76:	45 bb       	out	0x15, r20	; 21
+  78:	80 e1       	ldi	r24, 0x10	; 16
+  7a:	97 e2       	ldi	r25, 0x27	; 39
+  7c:	f9 01       	movw	r30, r18
+  7e:	31 97       	sbiw	r30, 0x01	; 1
+  80:	f1 f7       	brne	.-4      	; 0x7e <main+0x12>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  82:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  84:	d9 f7       	brne	.-10     	; 0x7c <main+0x10>
+	_delay_ms(1000);
+	PORTC = 0b00000000;
+  86:	15 ba       	out	0x15, r1	; 21
+  88:	80 e1       	ldi	r24, 0x10	; 16
+  8a:	97 e2       	ldi	r25, 0x27	; 39
+  8c:	f9 01       	movw	r30, r18
+  8e:	31 97       	sbiw	r30, 0x01	; 1
+  90:	f1 f7       	brne	.-4      	; 0x8e <main+0x22>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  92:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  94:	d9 f7       	brne	.-10     	; 0x8c <main+0x20>
+  96:	ef cf       	rjmp	.-34     	; 0x76 <main+0xa>
+
+00000098 <_exit>:
+  98:	f8 94       	cli
+
+0000009a <__stop_program>:
+  9a:	ff cf       	rjmp	.-2      	; 0x9a <__stop_program>
